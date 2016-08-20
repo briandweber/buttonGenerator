@@ -19,6 +19,7 @@
 						<li><a href="#button-sizing">Button Sizing</a></li>
 						<li><a href="#button-border">Button Border</a></li>
 						<li><a href="#button-background">Button Background</a></li>
+						<li><a href="#button-Hover">Button Hover</a></li>
 					</ul>
 					<div id="button-text">
 						<h3>Button Text</h3>
@@ -97,6 +98,15 @@
 							</li>
 						</ul>
 					</div>
+					<div id="button-Hover">
+						<h3>Button Hover</h3>
+						<ul>
+							<li>
+								<label for="backgroundHover">Background Hover:</label>
+								<input type="color" id="backgroundHover" name="backgroundHover" value="#333333" autocomplete="off">
+							</li>
+						</ul>
+					</div>
 				</div>
 				<div class="apply-styles">
 					<button id="applyButton">Apply Styling</button>
@@ -141,6 +151,7 @@
 				var backgroundColor = $('#backgroundColor').val();
 				var fontColor = $('#fontColor').val();
 
+				var backgroundHover = $('#backgroundHover').val();
 				// Display new styles on click of button with id applyButton
 				$('#applyButton').click(function(){
 
@@ -172,6 +183,8 @@
 
 					$("#previewButton").css(buttonStyles);
 
+					
+
 					var cssString = '.button-style {';
 						for( var prop in buttonStyles ){
 							cssString += "\n\t" + prop + ": " + buttonStyles[prop] + ";";
@@ -180,7 +193,20 @@
 
 					$('#buttonCode').html('<pre>' + cssString + '</pre>');
 				})
+				$('#previewButton').mouseover(function(){
+					backgroundHover = $('#backgroundHover').val();
+					var hoverStyles = {
+						"background-color": backgroundHover,
+						"color": fontColor
+					};
+					$(this).css(hoverStyles);	
+				}).mouseout(function(){
+					$(this).css("background-color", $('#backgroundColor').val() );
+				})
+
 			})
+
+
 
 			
 		</script>
