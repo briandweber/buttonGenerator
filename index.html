@@ -107,9 +107,7 @@
 				<div id="buttonHolder">
 					<a id="previewButton" class="button">dummyText</a>
 				</div>
-				<div id="buttonCode">
-					<pre></pre>
-				</div>
+				<div id="buttonCode"></div>
 			</div>
 		</div>
 
@@ -180,7 +178,7 @@
 						}
 					cssString += '\n}';
 
-					$('#buttonCode pre').text(cssString);
+					$('#buttonCode').html('<pre>' + cssString + '</pre>');
 				})
 			})
 
